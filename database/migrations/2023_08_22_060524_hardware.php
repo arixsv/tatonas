@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('hardware', function (Blueprint $table){
             $table->string('hardware', 4)->primary();
-            $table->string('location', 50)->nullable()->change();
-            $table->tinyInteger('timezone')->nullable()->change();
+            $table->string('location', 50)->nullable();
+            $table->tinyInteger('timezone')->nullable();
             $table->date('local_time');
-            $table->decimal('latitude', 9,6)->nullable()->change();
-            $table->decimal('longtitude', 9,6)->nullable()->change();
-            $table->string('created_by', 50)->nullable()->change();
+            $table->decimal('latitude', 9,6)->nullable();
+            $table->decimal('longtitude', 9,6)->nullable();
+            $table->string('created_by', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

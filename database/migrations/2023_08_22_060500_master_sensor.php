@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('master_sensor', function (Blueprint $table){
             $table->string('sensor', 2)->primary();
-            $table->string('sensor_name', 50)->nullable()->change();
-            $table->string('unit', 10)->nullable()->change();
-            $table->string('created_by', 50)->nullable()->change();
+            $table->string('sensor_name', 50)->nullable();
+            $table->string('unit', 10)->nullable();
+            $table->string('created_by', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
