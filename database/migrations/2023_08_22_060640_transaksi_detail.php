@@ -16,7 +16,7 @@ return new class extends Migration
             $table->tinyInteger('trans_id')->refrences('trans_id')->on('transaksi');
             $table->string('hardware', 4)->refrences('hardware')->on('hardware');
             $table->string('sensor', 2)->refrences('sensor')->on('sensor');
-            $table->tinyInteger('value')->nullable();
+            $table->string('value', 12)->nullable();
             $table->softDeletes();
         });
     }
