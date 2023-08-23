@@ -45,6 +45,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function createdBy($users)
+    {
+        $users->roles()->firstOrCreate([
+            'name' => 'Admin',
+        ], [
+            'created_by' => $users->id,
+        ]);
+
+        return $this->belongsTo(Admin::class, 'created_by');
+    }
+
     public function role(): Attribute
     {
         return new Attribute(

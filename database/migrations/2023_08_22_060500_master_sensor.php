@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('master_sensor', function (Blueprint $table){
-            $table->string('sensor', 2)->primary();
+            $table->string('sensor', 2);
             $table->string('sensor_name', 50)->nullable();
             $table->string('unit', 10)->nullable();
-            $table->string('created_by', 50)->nullable();
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
